@@ -11,8 +11,8 @@ _enableBackground - optional, default false. If true, a static background contro
 
 params [["_nCols", 1, [1]], ["_nRows", 1, [1]], ["_display", displayNull], ["_ctrlGroup", controlNull], ["_enableBackground", false]];
 
-private _str = format ["createGridLayout: %1", _this];
-LOG(_str);
+//private _str = format ["createGridLayout: %1", _this];
+//LOG(_str);
 
 // Validate input arguments
 

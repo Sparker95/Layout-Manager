@@ -19,7 +19,7 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="armalayoutmanager";
+sourceName="layoutmanager";
 addons[]=
 {
 	"A3_Characters_F"

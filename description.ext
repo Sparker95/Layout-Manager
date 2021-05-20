@@ -12,6 +12,7 @@ class CfgFunctions {
 
             class createGridLayout { };
             class clearLayout { };
+            class deleteLayout { };
             class calculateSizes { };
             class calculateGridPositions { };
             class setPosAndSize { };

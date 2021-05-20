@@ -1,11 +1,11 @@
-#include "LM\public.hpp"
+#include "..\LM\public.hpp"
 
 if (!isNil {layout}) then {
-[layout] call LM_fnc_clearLayout;
+[layout] call LM_fnc_deleteLayout;
 };
 
 // Margins
-private _marginx = 0.005;
+private _marginx = 0.008;
 private _marginy = _marginx * safezonew / safezoneh;
 
 // Main layout container
@@ -56,7 +56,7 @@ private _leftPanel = [1, 7,_dlg] call LM_fnc_createGridLayout;
 for "_i" from 0 to 6 do {
     private _button = [format ["Button %1", _i+1], _dlg] call LM_fnc_createButton;
     [_leftPanel, 0, _i, _button] call LM_fnc_setContent;
-    [_leftPanel, 0, _i, _marginx, 2*_marginy*_i/6] call LM_fnc_setContentMargins;
+    //[_leftPanel, 0, _i, _marginx, 2*_marginy*_i/6] call LM_fnc_setContentMargins;
 };
 
 [_midPanel, 0, 0, _leftPanel] call LM_fnc_setContent;
@@ -96,24 +96,11 @@ private _rightPanel = [3, 3, _dlg] call LM_fnc_createGridLayout;
 
 [_midPanel, 1, 0, _rightPanel] call LM_fnc_setContent;
 
-//[layout, 0, 0, SIZE_REL(1), SIZE_REL(2)] call LM_fnc_setContentSize;
-
-//[layout, 0, 0, SNAP_MIN, SNAP_MAX] call LM_fnc_setContentPos;
-
-/*
-[layout, 0, 0, 0.01, 0.01] call LM_fnc_setContentMargins;
-
-[layout, 0, 0, ["Hello"] call LM_fnc_createButton] call LM_fnc_setContent;
-
-[layout, SIZE_REL(1), SIZE_REL(1)] call LM_fnc_setAllContentSize;
-
-[layout, 0.02, 0.02] call LM_fnc_setAllContentMargins;
-*/
 
 // Set margins for inner most layouts
 {
     [_x, _marginx, _marginy] call LM_fnc_setAllContentMargins;
-} forEach [_topBar, _bottomBar];
+} forEach [_topBar, _bottomBar, _leftPanel];
 
 // Resize the TOP LEVEL layout
 // It will resize its children
@@ -128,13 +115,12 @@ private _rightPanel = [3, 3, _dlg] call LM_fnc_createGridLayout;
 // Draw grids
 {
     private _drawCells = false;
-    //[_x, _drawCells] call LM_fnc_drawGrid;
+    [_x, _drawCells] call LM_fnc_drawGrid;
 } forEach [layout, _topBar, _midPanel, _leftPanel, _bottomBar, _rightPanel];
 
 
 allLayouts = [layout, _topBar, _midPanel, _leftPanel, _bottomBar, _rightPanel];
 
-/*
 // Animation
 gAnimAlpha = 0;
 onEachFrame {
@@ -143,6 +129,7 @@ onEachFrame {
     private _height = 1 + 0.3*(sin gAnimAlpha);
 
     [layout, [0, 0, _width, _height]] call LM_fnc_setPosAndSize;
+    [layout] call LM_fnc_commit;
     {
         [_x, false] call LM_fnc_drawGrid;
     } forEach allLayouts;
@@ -150,4 +137,3 @@ onEachFrame {
     gAnimAlpha = gAnimAlpha + 70*diag_deltaTime;
     if (gAnimAlpha > 360) then { gAnimAlpha = gAnimAlpha - 360; };
 };
-*/

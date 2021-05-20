@@ -67,8 +67,14 @@ private _content = HM_GET(_layout,content);
 private _bgEnabled = HM_GET(_layout,bgEnabled);
 private _bgcolor = HM_GET(_layout,bgColor);
 private _bgcontrol = HM_GET(_layout,bgControl);
+private _display = HM_GET(_layout,display);
+private _ctrlGroup = HM_GET(_layout,ctrlGroup);
 
 if (_bgEnabled) then {
+    if (isNull _bgcontrol) then {
+        _bgcontrol = _display ctrlCreate ["RscText", -1, _ctrlGroup];
+        HM_SET(_layout,bgControl, _bgcontrol);
+    };
     _bgcontrol ctrlSetPosition [_posx, _posy, _width, _height];
     _bgcontrol ctrlSetBackgroundColor _bgcolor;
     _bgcontrol ctrlCommit 0;

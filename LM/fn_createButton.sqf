@@ -7,8 +7,8 @@ Can be used for debugging and demonstration purposes.
 
 params ["_text", ["_display", displayNull]];
 
-private _str = format ["createButton: %1", _this];
-LOG(_str);
+//private _str = format ["createButton: %1", _this];
+//LOG(_str);
 
 if (isNull _display) then {
     _display = findDisplay 46;
