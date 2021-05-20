@@ -9,6 +9,6 @@ Please watch the video:
 https://youtu.be/hDvVUAaV6Kw
 [![img](https://img.youtube.com/vi/hDvVUAaV6Kw/maxresdefault.jpg)](https://youtu.be/hDvVUAaV6Kw)
 
-# How to use
+# How to use, more examples
 
-Please have a look at the [wiki](https://github.com/Sparker95/Layout-Manager/wiki).
+Please have a look at the [wiki](https://github.com/Sparker95/Layout-Manager/wiki)
