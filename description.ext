@@ -1,0 +1,37 @@
+class CfgFunctions {
+	class LM
+	{
+        class LM {
+            file = "LM";
+
+            // Misc functions
+            class createArray1D { };
+            class createArray2D { };
+            class createHelperRect { };
+            class createButton { };
+
+            class createGridLayout { };
+            class clearLayout { };
+            class calculateSizes { };
+            class calculateGridPositions { };
+            class setPosAndSize { };
+            class setRowSize { };
+            class setColSize { };
+            class calculateContentPosAndSize { };
+            class getPosAndSize { };
+            class setContentPos { };
+            class setContentSize { };
+            class setContentMargins { };
+            class setContent { };
+            class setAllContentPos { };
+            class setAllContentSize { };
+            class setAllContentMargins { };
+            class commit { };
+
+            class drawGrid { };
+            class clearGrid { };
+        };
+	};
+};
+
+allowFunctionsRecompile = 1;
