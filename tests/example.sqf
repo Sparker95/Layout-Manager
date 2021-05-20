@@ -35,8 +35,6 @@ layout = [1, 3, _dlg, controlNull, true] call LM_fnc_createGridLayout;
 private _staticTop = ["Top bar text", _dlg, "RscText"] call _createControl;
 [layout, 0, 0, _staticTop] call LM_fnc_setContent; // Register the top static
 
-// Set size and position of topmost layout
-[layout, [0, 0, 1, 1]] call LM_fnc_setPosAndSize;
 
 // ==== Bottom bar ====
 // 2 equal horizontal cells
@@ -58,6 +56,8 @@ private _central = [2, 1, _dlg, controlNull] call LM_fnc_createGridLayout;
 [_central, 0, SIZE_REL(1)] call LM_fnc_setColSize;
 [_central, 1, SIZE_REL(3)] call LM_fnc_setColSize; // 2nd col is 2x wider
 
+[layout, 0, 1, _central] call LM_fnc_setContent; // Register the central part
+
 // Left part
 private _lb = ["", _dlg, "RscListBox"] call _createControl;
 for "_i" from 0 to 30 do {
@@ -65,14 +65,14 @@ for "_i" from 0 to 30 do {
 };
 [_central, _marginx, _marginy] call LM_fnc_setAllContentMargins;
 [_central, 0, 0, _lb] call LM_fnc_setContent; // Register listbox
-[layout, 0, 1, _central] call LM_fnc_setContent; // Register the central part
 
 // Right part
 private _rightStatic = ["Description: ...", _dlg, "RscText"] call _createControl;
 _rightStatic ctrlSetBackgroundColor [0,0,0, 0.3];
 [_central, 1, 0, _rightStatic] call LM_fnc_setContent; // Register static
 
-
+// Set size and position of topmost layout
+[layout, [0, 0, 1, 1]] call LM_fnc_setPosAndSize;
 // Commit everything, it will rescale the layout and its child contents
 [layout] call LM_fnc_commit;
 

@@ -3,6 +3,7 @@
 /*
 PUBLIC
 Draws a grid for debugging purposes, so that you can see the shape of your layout instantly.
+!!! It must be called after LM_fnc_commit.
 _drawCells - optional, default true. Enables drawing of rectangles showing the size cell.
 */
 
