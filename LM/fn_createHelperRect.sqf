@@ -1,6 +1,8 @@
-// Draws a rectangle or can also be used to draw vertical or horisontal line
-// _margin is applied in all directions (up, down, left, right)
-
+/*
+PRIVATE
+Draws a rectangle or can also be used to draw vertical or horisontal line
+_margin is applied in all directions (up, down, left, right)
+*/
 
 params ["_display", "_ctrlGroup", "_x0", "_y0", "_x1", "_y1", "_margin", ["_color", [1, 0, 0, 0.5]] ];
 

@@ -1,6 +1,7 @@
 #include "common.hpp"
 
 /*
+PRIVATE
 Gets pos and size of layout or control.
 */
 

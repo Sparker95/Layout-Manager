@@ -1,6 +1,7 @@
 #include "common.hpp"
 
 /*
+PUBLIC
 Recursively clears all contents of this layout:
 controls are deleted, layouts are cleared.
 Also clears the debug grid.

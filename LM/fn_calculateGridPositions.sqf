@@ -1,7 +1,10 @@
 #include "common.hpp"
 
-// Updates these variables:
-// colSizeReal, rowSizeReal, colPosReal, rowSizeReal
+/*
+INTERNAL
+Updates these variables:
+colSizeReal, rowSizeReal, colPosReal, rowSizeReal
+*/
 
 params ["_layout"];
 

@@ -1,6 +1,18 @@
 #include "common.hpp"
 
-params [["_nCols", 1, [1]], ["_nRows", 1, [1]]];
+/*
+PUBLIC
+Creates the grid layout
+_nCols, _nRows - integer >=1, amount of columns and rows
+_display - optional, the display (or dialog) where this layout belongs. Default value is finddisplay 46 (game main display).
+_ctrlGroup - optional, the parent group control of this layout. NOTE that all content controls and layouts must be in the same group too.
+_enableBackground - optional, default false. If true, a static background control will be rendered with same size as the whole layout.
+*/
+
+params [["_nCols", 1, [1]], ["_nRows", 1, [1]], ["_display", displayNull], ["_ctrlGroup", controlNull], ["_enableBackground", false]];
+
+private _str = format ["createGridLayout: %1", _this];
+LOG(_str);
 
 // Validate input arguments
 
@@ -12,10 +24,16 @@ if (_nRows <= 0) exitWith {
     LOG_ERROR("Wrong row amount. You must use >=1 rows");
 };
 
+if (isNull _display) then {
+    _display = findDisplay 46;
+};
+
 private _layout = createHashmap;
 
 _layout set ["nCols", _nCols];
 _layout set ["nRows", _nRows];
+_layout set ["display", _display];
+_layout set ["ctrlGroup", _ctrlGroup];
 _layout set ["posx", 0];
 _layout set ["posy", 0];
 _layout set ["width", 0.5];
@@ -49,6 +67,20 @@ _layout set ["content", _content];
 // Helper lines for visualization
 
 _layout set ["gridControls", []];
+
+
+// Background
+// We want to create it first of all, so that it's below all buttons and other controls
+
+private _bgControl = controlNull;
+if (_enableBackground) then {
+    _bgcontrol = _display ctrlCreate ["RscText", -1, _ctrlGroup];
+    _bgcontrol ctrlSetBackgroundColor [0, 0, 0, 0];
+    _bgcontrol ctrlSetPosition [0, 0, 0.5, 0.5];
+};
+_layout set ["bgControl", _bgControl];
+_layout set ["bgColor", [0, 0, 0, 0.4]];
+_layout set ["bgEnabled", _enableBackground];
 
 // Return
 _layout;

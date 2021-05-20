@@ -1,5 +1,11 @@
 #include "common.hpp"
 
+/*
+PUBLIC
+Draws a grid for debugging purposes, so that you can see the shape of your layout instantly.
+_drawCells - optional, default true. Enables drawing of rectangles showing the size cell.
+*/
+
 params ["_layout", ["_drawCells", true]];
 
 // Clear old grid
@@ -16,9 +22,9 @@ private _posy = HM_GET(_layout,posy);
 private _content = HM_GET(_layout,content);
 
 private _controls = [];
-private _display = findDisplay 46;
-private _ctrlGroup = controlNull;
-private _lineSize = 0.002;
+private _display = HM_GET(_layout,display);
+private _ctrlGroup = HM_GET(_layout,ctrlGroup);
+private _lineSize = 0.001;
 private _lineColor = [1/255, 227/255, 239/255, 1];
 private _cellColor = [252/255, 75/255, 31/255, 0.45];
 

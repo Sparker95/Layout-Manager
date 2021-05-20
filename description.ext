@@ -27,6 +27,7 @@ class CfgFunctions {
             class setAllContentSize { };
             class setAllContentMargins { };
             class commit { };
+            class setBackgroundColor { };
 
             class drawGrid { };
             class clearGrid { };

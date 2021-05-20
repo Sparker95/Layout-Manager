@@ -1,6 +1,7 @@
 #include "common.hpp"
 
 /*
+INTERNAL
 Calculates size and position of a content element according to size and positioning rules.
 Returned position is the position of top-left cornet of the element. 
 */

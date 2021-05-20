@@ -64,3 +64,4 @@
 
 // ==== Logging ====
 #define LOG_ERROR(str) diag_log format ["[Layout Manager] Error: %1", str]
+#define LOG(str) diag_log format ["[Layout Manager]: %1", str]

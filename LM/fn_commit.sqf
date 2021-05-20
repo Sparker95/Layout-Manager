@@ -1,5 +1,17 @@
 #include "common.hpp"
 
+/*
+PUBLIC
+Call this to have the grid apply the changes visually.
+
+This should be called after applying changes through these commands:
+setContentMargins
+setBackgroundColor
+setPosAndSize
+setContent*
+setAllContent*
+*/
+
 params ["_layout"];
 
 // Calculate sizes
@@ -50,3 +62,14 @@ private _content = HM_GET(_layout,content);
         };
     } forEach _x;
 } forEach _content;
+
+// Draw the background
+private _bgEnabled = HM_GET(_layout,bgEnabled);
+private _bgcolor = HM_GET(_layout,bgColor);
+private _bgcontrol = HM_GET(_layout,bgControl);
+
+if (_bgEnabled) then {
+    _bgcontrol ctrlSetPosition [_posx, _posy, _width, _height];
+    _bgcontrol ctrlSetBackgroundColor _bgcolor;
+    _bgcontrol ctrlCommit 0;
+};

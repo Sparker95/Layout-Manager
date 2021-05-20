@@ -1,5 +1,11 @@
 #include "common.hpp"
 
+/*
+PUBLIC
+Sets positions of all content cells.
+__x, __y - use POS and SNAP macros from public.hpp
+*/
+
 params ["_layout", "__x", "__y"];
 
 private _nrows = HM_GET(_layout,nRows);

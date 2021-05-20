@@ -1,5 +1,11 @@
 #include "common.hpp"
 
+/*
+PUBLIC
+Sets margins for all content cells.
+__x, __y - numbers
+*/
+
 params ["_layout", "__x", "__y"];
 
 private _nrows = HM_GET(_layout,nRows);

@@ -1,4 +1,7 @@
-// Helper function to create 2D arrays
+/*
+INTERNAL
+Creates a 2D array.
+*/
 
 params ["_nCols", "_nRows", "_defaultValue"];
 

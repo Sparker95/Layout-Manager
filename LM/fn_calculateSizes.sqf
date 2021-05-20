@@ -1,7 +1,7 @@
 #include "common.hpp"
 
 /*
-Internal.
+INTERNAL
 Calculates final sizes from array of SIZE_STRUCTs.
 It is meant to calculate widths of columns and heights of rows.
 */

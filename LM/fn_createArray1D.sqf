@@ -1,3 +1,8 @@
+/*
+INTERNAL
+Creates a 1D array.
+*/
+
 params ["_size", "_defaultValue"];
 
 private _array = [];

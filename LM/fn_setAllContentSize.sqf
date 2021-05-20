@@ -1,5 +1,11 @@
 #include "common.hpp"
 
+/*
+PUBLIC
+Sets sizes of all content cells.
+__x, __y - use SIZE macros from public.hpp
+*/
+
 params ["_layout", "__x", "__y"];
 
 private _nrows = HM_GET(_layout,nRows);
