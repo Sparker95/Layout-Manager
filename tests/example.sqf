@@ -68,7 +68,7 @@ for "_i" from 0 to 30 do {
 [layout, 0, 1, _central] call LM_fnc_setContent; // Register the central part
 
 // Right part
-private _rightStatic = ["Description: ...", _dlg, "RscStatic"] call _createControl;
+private _rightStatic = ["Description: ...", _dlg, "RscText"] call _createControl;
 _rightStatic ctrlSetBackgroundColor [0,0,0, 0.3];
 [_central, 1, 0, _rightStatic] call LM_fnc_setContent; // Register static
 
@@ -76,6 +76,6 @@ _rightStatic ctrlSetBackgroundColor [0,0,0, 0.3];
 // Commit everything, it will rescale the layout and its child contents
 [layout] call LM_fnc_commit;
 
-//[layout, false] call LM_fnc_drawGrid;
-//[_central, false] call LM_fnc_drawGrid;
-//[_bottomBar, false] call LM_fnc_drawGrid;
+[layout, false] call LM_fnc_drawGrid;
+[_central, false] call LM_fnc_drawGrid;
+[_bottomBar, false] call LM_fnc_drawGrid;
